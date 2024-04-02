@@ -8,6 +8,9 @@ export const WeatherDisplay = ({ weatherData, error }) => {
     case "Clouds":
       icons = "https://openweathermap.org/img/wn/03d@2x.png";
       break;
+      case "Smoke":
+      icons = "https://openweathermap.org/img/wn/03d@2x.png";
+      break;
     case "Clear":
       icons = "https://openweathermap.org/img/wn/01d@2x.png";
       break;
@@ -15,6 +18,12 @@ export const WeatherDisplay = ({ weatherData, error }) => {
       icons = "https://openweathermap.org/img/wn/04d@2x.png";
       break;
     case "Mist":
+      icons = "https://openweathermap.org/img/wn/50d@2x.png";
+      break;
+      case "Fog":
+      icons = "https://openweathermap.org/img/wn/50d@2x.png";
+      break;
+      case "Haze":
       icons = "https://openweathermap.org/img/wn/50d@2x.png";
       break;
     case "Rain":
@@ -33,7 +42,7 @@ export const WeatherDisplay = ({ weatherData, error }) => {
   const wrapperClass =
     "flex flex-col justify-center items-center gap-4 slide-right-phone";
   const hoverClass =
-    "hover:scale-100 duration-300 text-xl xl:text-2xl 2xl:text-4xl whitespace-nowrap font-serif font-extrabold rounded-md px-5 py-2 pl-3 bg-stone-300 bg-opacity-20 text-left";
+    "hover:scale-100 duration-300 text-xl xl:text-2xl 2xl:text-4xl whitespace-nowrap font-sans font-extrabold rounded-md px-5 py-2 pl-3 bg-stone-300 bg-opacity-20 text-left";
   const hoverTransformClass = "hover:-translate-y-3 duration-300";
 
   return (
@@ -52,7 +61,7 @@ export const WeatherDisplay = ({ weatherData, error }) => {
           <div className={hoverTransformClass}>
             <img src={icons} alt="icon" className="w-full" />
           </div>
-          <div className="flex flex-col sm:grid sm:grid-cols-2 gap-4 ">
+          <div className="flex flex-col md:grid md:grid-cols-2 xl:flex xl:flex-row gap-4 ">
             <h2 className={`${hoverClass} ${hoverTransformClass}`}>
               📍 {weatherData.name}, {weatherData.sys.country}
             </h2>

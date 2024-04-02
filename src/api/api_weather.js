@@ -20,3 +20,4 @@ export const fetchWeatherByCity = async (cityName) => {
         throw error;
     }
 };
+

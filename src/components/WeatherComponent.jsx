@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { fetchWeatherByCity } from "../api/api";
+import { fetchWeatherByCity } from "../api/api_weather";
 import CityInput from "./CityInput/CityInput";
 import { WeatherDisplay } from "./WeatherDisplay/WeatherDisplay";
+import Forecast from "./WeatherDisplay/Forecast";
 
 const WeatherComponent = () => {
   const [weatherData, setWeatherData] = useState(null);
@@ -24,9 +25,10 @@ const WeatherComponent = () => {
   };
 
   return (
-    <div className=" flex flex-col justify-between gap-10">
+    <div className="flex flex-col justify-between gap-10">
       <CityInput onSubmit={handleCitySubmit} />
       <WeatherDisplay weatherData={weatherData} error={error} />
+      {weatherData && <Forecast cityName={weatherData.name} />}
     </div>
   );
 };
